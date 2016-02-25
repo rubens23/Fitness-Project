@@ -1,5 +1,4 @@
 
-
 <div align="center">
   <form  name="nutritionform" id="nutritionform">
     <input type="Text" name="foodname" size="4"> Food Name
@@ -8,24 +7,42 @@
   </form>
 </div>
 
-<script type="text/javascript">
+<div id = "nresults"
+  <table>
+      <thead>
+      </thead>
+      <tbody id="nutritiontable">
+      <tr>
+        <td>calories</td>
+        <tr>
+      </tbody>
+  </table>
+</div>
 
+<script type="text/javascript">
+  var results;
   function  pullnutrition() {
     var formfoodname = document.getElementById("nutritionform")
-    var nutrition_api_url = 'https://api.nutritionix.com';
-    //var foodname = eval(document.form.foodname.value)
-    //var nutritionix = require('nutritionix')({
-    //appId: '0fe037bf',
-    //appKey: '18042f7f4091cdbed6c4ab0cbf7b02d1'
-    //}, false);
-    //var ncontent = https://api.nutritionix.com/v1_1/search/mcdonalds?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=0fe037bf&appKey=18042f7f4091cdbed6c4ab0cbf7b02d1
-
-    var route = 'https://api.nutritionix.com/v1_1/search';
-    var searchq = "https://api.nutritionix.com/v1_1/search/" + formfoodname.value + "?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=0fe037bf&appKey=18042f7f4091cdbed6c4ab0cbf7b02d1"
+    //var nutrition_api_url = 'https://api.nutritionix.com';
+    //var route = 'https://api.nutritionix.com/v1_1/search';
+    // var searchq = "https://api.nutritionix.com/v1_1/search/" + formfoodname.value + "?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=0fe037bf&appKey=18042f7f4091cdbed6c4ab0cbf7b02d1"
+    var searchq = "https://api.nutritionix.com/v1_1/search/" + formfoodname.value + "?results=0:20&fields=*&appId=0fe037bf&appKey=18042f7f4091cdbed6c4ab0cbf7b02d1"
     $.getJSON(searchq, function getnutrition(data) {
-      console.log(data);
+      results = data;
+      console.log(results);
+      outputnutrition();
     })
   }
+  function outputnutrition(){
+    var nutroutput = document.getElementById("nutritiontable")
+    results.hits.forEach(function(current, index, array){
+      $("#nresults").append(
+          "<tr><td>" + current.fields.nf_calories + '</td><td>' + current.fields.nf_saturated_fat + "</td></tr>"
+
+      )
+    })
+    }
 </script>
+}
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
