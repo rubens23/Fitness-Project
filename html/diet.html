@@ -9,8 +9,6 @@
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 		<link href="../css/styles.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="../fonts.css" rel="stylesheet" type="text/css" media="all" />
-	</head>
-
 <body>
 <div id="header" class="container">
 	<div id="logo">
@@ -22,24 +20,41 @@
 			<li><a href="athletics.html" accesskey="2" title="">Athletics</a></li>
 			<li><a href="diet.html" accesskey="3" title="">Diet</a></li>
 			<li><a href="exercise.html" accesskey="4" title="">Exercise</a></li>
-      <li><a href="myfitnessscore.html" accesskey="6" title="">myFitness score</a></li>
-			<li><a href="aboutus.html" accesskey="5" title="">About Us</a></li>
+      <li><a href="myfitnessscore.html" accesskey="5" title="">myFitness score</a></li>
+			<li><a href="aboutus.html" accesskey="6" title="">About Us</a></li>
 		</ul>
 	</div>
 </div>
-<p>What type of diet strategies are you interested in?</p>
-<ul id="filters">
-<li>
-	<select id="diet-filter">
-		<option value"">Choose diet plan</option>
-	</select>
-</li>
-</ul>
-</div>
+<p> What type of diet strategies are you interested in? </p>
+<section id="articles" class="tab-content">
+        <div>
+          <ul id="filters">
+            <li>
+              <select id="category-filter">
+                <option value=""> Choose your Diet Strategy </option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <article class="template template" data-category="cat">
+          <header>
+            <h1>Title</h1>
+            <div class="byline">
+              By <address><a href=""> Expert Name</a></address>
+              published <time pubdate datetime="2000-01-01">Publish Time</time>
+            </div>
+          </header>
+          <section class="article-body"></section>
+        </article>
+      </section>
+<br>
+<br>
+
+
+
 <div id="footer-wrapper">
 	<div id="footer" class="container2">
-		<p><i>When nothing goes right...go lift.<br> -Fitness Junkies</br></i></p>
-	</div>
+		<p><i>Excuses don't burn calories.<br> -Fitness Junkies</br></i></p>
 	</div>
 </div>
 <div id="copyright">
@@ -52,5 +67,10 @@
 
 	<p>&copy; Fitness Junkies | 2016 | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 </div>
+<script src="../vendor/jquery-2.1.4.js"></script>
+<script src="../vendor/handlebars.js"></script>
+<script src='../scripts/dietarticles.js'></script>
+<script src = '../scripts/article.js'> </script>
+<script src = '../scripts/articleView.js'></script>
 </body>
 </html>

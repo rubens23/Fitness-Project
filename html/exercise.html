@@ -9,8 +9,6 @@
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 		<link href="../css/styles.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="../fonts.css" rel="stylesheet" type="text/css" media="all" />
-	</head>
-
 <body>
 <div id="header" class="container">
 	<div id="logo">
@@ -27,14 +25,31 @@
 		</ul>
 	</div>
 </div>
-<p>What do you want to improve on?</p>
-<ul id="filters">
-<li>
-	<select id="exercise-filter">
-		<option value"">Choose an exercise</option>
-	</select>
-</li>
-</ul>
+<p> What do you want to improve on? </p>
+<section id="articles" class="tab-content">
+        <div>
+          <ul id="filters">
+            <li>
+              <select id="category-filter">
+                <option value=""> Choose your Exercise </option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <article class="template template" data-category="cat">
+          <header>
+            <h1>Title</h1>
+            <div class="byline">
+              By <address><a href=""> Expert Name</a></address>
+              published <time pubdate datetime="2000-01-01">Publish Time</time>
+            </div>
+          </header>
+          <section class="article-body"></section>
+        </article>
+      </section>
+<br>
+<br>
+
 <div id="footer-wrapper">
 	<div id="footer" class="container2">
 		<p><i>I may not be there yet but I'm closer than I was yesterday.<br> -Fitness Junkies</br></i></p>
@@ -50,5 +65,10 @@
 
 	<p>&copy; Fitness Junkies | 2016 | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 </div>
+<script src="../vendor/jquery-2.1.4.js"></script>
+<script src="../vendor/handlebars.js"></script>
+<script src= '../scripts/exercisearticles.js'></script>
+<script src = '../scripts/article.js'> </script>
+<script src = '../scripts/articleView.js'></script>
 </body>
 </html>
