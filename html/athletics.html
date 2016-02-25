@@ -9,8 +9,6 @@
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 		<link href="../css/styles.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="../fonts.css" rel="stylesheet" type="text/css" media="all" />
-	</head>
-
 <body>
 <div id="header" class="container">
 	<div id="logo">
@@ -27,18 +25,33 @@
 		</ul>
 	</div>
 </div>
-<ul id="filters">
-<li>
-	<p>Which sport would you like to learn about?</p>
-	<select id="sport-filter">
-		<option value"">Choose a sport</option>
-	</select>
-</li>
-</ul>
+<p>Which sport would you like to learn about?</p>
+<section id="articles" class="tab-content">
+        <div>
+          <ul id="filters">
+            <li>
+              <select id="category-filter">
+                <option value="">-- Filter by Categories --</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <article class="template template" data-category="cat">
+          <header>
+            <h1>Title</h1>
+            <div class="byline">
+              By <address><a href="">Author Name</a></address>
+              published <time pubdate datetime="2000-01-01">Publish Time</time>
+            </div>
+          </header>
+          <section class="article-body"></section>
+          <a href="#" class="read-on">Read on &rarr;</a>
+        </article>
+      </section>
 <br>
 <br>
-</div>
-<div>
+
+
 
 <div id="footer-wrapper">
 	<div id="footer" class="container2">
@@ -55,5 +68,10 @@
 
 	<p>&copy; Fitness Junkies | 2016 | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 </div>
+<script src="../vendor/jquery-2.1.4.js"></script>
+<script src="../vendor/handlebars.js"></script>
+<script src='../scripts/athleticsData.js'></script>
+<script src = '../scripts/article.js'> </script>
+<script src = '../scripts/articleView.js'></script>
 </body>
 </html>
