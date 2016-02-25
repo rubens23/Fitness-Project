@@ -9,6 +9,7 @@
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 		<link href="../css/styles.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="../fonts.css" rel="stylesheet" type="text/css" media="all" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	</head>
 
 <body>
@@ -28,16 +29,41 @@
 	</div>
 </div>
   <script type="text/javascript">
-    function  calculateBMI() {
+
+		var BMIScore;
+		function  calculateBMI() {
        var weight = eval(document.form.weight.value)
        var height = eval(document.form.height.value)
        weight2 = weight * 703;
-       var BMI = weight2 / (height * height);
-       document.form.BodyMassIndex.value=custRound(BMI,1);
-     }
+       BMIScore = weight2 / (height * height);
+       document.form.BodyMassIndex.value=custRound(BMIScore,1);
+     };
      function custRound(x,places) {
        return (Math.round(x*Math.pow(10,places)))/Math.pow(10,places)
-     }
+     };
+		 var healthFitnessScore;
+	function calculateScore () {
+		 var epwElement = document.getElementById('number-filter');
+		 var exerciseValue = epwElement.options[epwElement.selectedIndex].value;
+		 var smokingElement = document.getElementById('answer-filter');
+		 var smokingValue = smokingElement.options[smokingElement.selectedIndex].value;
+		 var healthFitnessScore = Number(BMIScore) + Number(exerciseValue) + Number(smokingValue);
+		 switch (healthFitnessScore) {
+		   case (healthFitnessScore > 20):
+			 	alert('You are in good health')
+			 	break;
+			 	case (healthFitnessScore > 20 && healthFitnessScore < 30 ):
+			 	alert('You are in average health')
+			 	break;
+			 	case (healthFitnessScore > 30):
+			 	alert('You are in below average health')
+			 	break;
+	 		}
+	 alert (healthFitnessScore);
+ };
+
+
+
    </script>
 
    <div id="bmi" align="center">
@@ -56,14 +82,14 @@
      <ul id="filters">
      <li>
        <select id="number-filter">
-         <option value"">Choose number between 1-7</option>
-         <option value"">1</option>
-         <option value"">2</option>
-         <option value"">3</option>
-         <option value"">4</option>
-         <option value"">5</option>
-         <option value"">6</option>
-         <option value"">7</option>
+         <option value = "0">Choose number between 1-7</option>
+         <option value = "-1">1</option>
+         <option value = "-2">2</option>
+         <option value = "-3">3</option>
+         <option value = "-4">4</option>
+         <option value = "-5">5</option>
+         <option value = "-6">6</option>
+         <option value = "-7">7</option>
        </select>
      </li>
     </ul>
@@ -71,14 +97,16 @@
      <ul>
        <select id="answer-filter">
          <option value="">Choose Yes or No</option>
-         <option value"">Yes</option>
-         <option value"">No</option>
+         <option value = "5">Yes</option>
+         <option value = "0">No</option>
        </select>
      </li>
    </ul>
      <br>
-     <br>
+
+	<button onclick = 'calculateScore()'> Calculate myFitnessScore </button>
    </div>
+	 <br>
 
 <footer>
   <br>
@@ -98,7 +126,5 @@
   	<p>&copy; Fitness Junkies | 2016 | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
   </div>
 </footer>
-<script src="script.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </body>
 </html>
