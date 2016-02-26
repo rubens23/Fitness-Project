@@ -7,25 +7,21 @@
   </form>
 </div>
 
-<div id = "nresults"
-  <table>
+<table border="1" style="width:100%" class="table table-hover" id="nresults">
       <thead>
       </thead>
       <tbody id="nutritiontable">
       <tr>
-        <td>calories</td>
+        <td>Calories</td><td>Sugars</td>
         <tr>
       </tbody>
-  </table>
-</div>
+</table>
+
 
 <script type="text/javascript">
   var results;
   function  pullnutrition() {
     var formfoodname = document.getElementById("nutritionform")
-    //var nutrition_api_url = 'https://api.nutritionix.com';
-    //var route = 'https://api.nutritionix.com/v1_1/search';
-    // var searchq = "https://api.nutritionix.com/v1_1/search/" + formfoodname.value + "?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=0fe037bf&appKey=18042f7f4091cdbed6c4ab0cbf7b02d1"
     var searchq = "https://api.nutritionix.com/v1_1/search/" + formfoodname.value + "?results=0:20&fields=*&appId=0fe037bf&appKey=18042f7f4091cdbed6c4ab0cbf7b02d1"
     $.getJSON(searchq, function getnutrition(data) {
       results = data;
@@ -37,12 +33,11 @@
     var nutroutput = document.getElementById("nutritiontable")
     results.hits.forEach(function(current, index, array){
       $("#nresults").append(
-          "<tr><td>" + current.fields.nf_calories + '</td><td>' + current.fields.nf_saturated_fat + "</td></tr>"
-
+          "<tr><td>" + current.fields.nf_calories + '</td><td>' + current.fields.nf_sugars + "</td></tr>"
       )
     })
-    }
+  }
 </script>
-}
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
