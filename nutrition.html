@@ -1,0 +1,43 @@
+
+<div align="center">
+  <form  name="nutritionform" id="nutritionform">
+    <input type="Text" name="foodname" size="4"> Food Name
+    <input type="button" style="font-size: 8pt" value="Calculate" onclick="pullnutrition()" name="button">
+    <input type="reset" style="font-size: 8pt" value="Clear Form">
+  </form>
+</div>
+
+<table border="1" style="width:100%" class="table table-hover" id="nresults">
+      <thead>
+      </thead>
+      <tbody id="nutritiontable">
+      <tr>
+        <td>Calories</td><td>Sugars</td>
+        <tr>
+      </tbody>
+</table>
+
+
+<script type="text/javascript">
+  var results;
+  function  pullnutrition() {
+    var formfoodname = document.getElementById("nutritionform")
+    var searchq = "https://api.nutritionix.com/v1_1/search/" + formfoodname.value + "?results=0:20&fields=*&appId=0fe037bf&appKey=18042f7f4091cdbed6c4ab0cbf7b02d1"
+    $.getJSON(searchq, function getnutrition(data) {
+      results = data;
+      console.log(results);
+      outputnutrition();
+    })
+  }
+  function outputnutrition(){
+    var nutroutput = document.getElementById("nutritiontable")
+    results.hits.forEach(function(current, index, array){
+      $("#nresults").append(
+          "<tr><td>" + current.fields.nf_calories + '</td><td>' + current.fields.nf_sugars + "</td></tr>"
+      )
+    })
+  }
+</script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
