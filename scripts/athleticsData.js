@@ -47,7 +47,7 @@ var rawData = [
 
 {
   "title":         "10 Ways to become better football Player",
-  "category":        "football",
+  "category":        "Football",
   "author":        "Travis Brody",
   "authorUrl":     "http://www.growthofagame.com/2014/11/10-ways-become-better-football-player/",
   "publishedOn":        "2015-09-20",
