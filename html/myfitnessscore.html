@@ -48,15 +48,15 @@
 		 var smokingElement = document.getElementById('answer-filter');
 		 var smokingValue = smokingElement.options[smokingElement.selectedIndex].value;
 		 var healthFitnessScore = Number(BMIScore) + Number(exerciseValue) + Number(smokingValue);
-		 switch (healthFitnessScore) {
+		 switch (true) {
 		   case (healthFitnessScore > 20):
-			 	alert('You are in good health')
+			 	alert('You are in good health');
 			 	break;
 			 	case (healthFitnessScore > 20 && healthFitnessScore < 30 ):
-			 	alert('You are in average health')
+			 	alert('You are in average health');
 			 	break;
 			 	case (healthFitnessScore > 30):
-			 	alert('You are in below average health')
+			 	alert('You are in below average health');
 			 	break;
 	 		}
 	 alert (healthFitnessScore);
