@@ -28,43 +28,39 @@
 		</ul>
 	</div>
 </div>
-  <script type="text/javascript">
-
-		var BMIScore;
-		function  calculateBMI() {
-       var weight = eval(document.form.weight.value)
-       var height = eval(document.form.height.value)
-       weight2 = weight * 703;
-       BMIScore = weight2 / (height * height);
-       document.form.BodyMassIndex.value=custRound(BMIScore,1);
-     };
-     function custRound(x,places) {
-       return (Math.round(x*Math.pow(10,places)))/Math.pow(10,places)
-     };
-		 var healthFitnessScore;
-	function calculateScore () {
-		 var epwElement = document.getElementById('number-filter');
-		 var exerciseValue = epwElement.options[epwElement.selectedIndex].value;
-		 var smokingElement = document.getElementById('answer-filter');
-		 var smokingValue = smokingElement.options[smokingElement.selectedIndex].value;
-		 var healthFitnessScore = Number(BMIScore) + Number(exerciseValue) + Number(smokingValue);
-		 switch (healthFitnessScore) {
-		   case (healthFitnessScore > 20):
-			 	alert('You are in good health')
-			 	break;
-			 	case (healthFitnessScore > 20 && healthFitnessScore < 30 ):
-			 	alert('You are in average health')
-			 	break;
-			 	case (healthFitnessScore > 30):
-			 	alert('You are in below average health')
-			 	break;
-	 		}
-	 alert (healthFitnessScore);
- };
-
-
-
-   </script>
+<script type="text/javascript">
+	var BMIScore;
+	function  calculateBMI() {
+		 var weight = eval(document.form.weight.value)
+		 var height = eval(document.form.height.value)
+		 weight2 = weight * 703;
+		 BMIScore = weight2 / (height * height);
+		 document.form.BodyMassIndex.value=custRound(BMIScore,1);
+	 };
+	 function custRound(x,places) {
+		 return (Math.round(x*Math.pow(10,places)))/Math.pow(10,places)
+	 };
+	 var healthFitnessScore;
+function calculateScore () {
+	 var epwElement = document.getElementById('number-filter');
+	 var exerciseValue = epwElement.options[epwElement.selectedIndex].value;
+	 var smokingElement = document.getElementById('answer-filter');
+	 var smokingValue = smokingElement.options[smokingElement.selectedIndex].value;
+	 var healthFitnessScore = Number(BMIScore) + Number(exerciseValue) + Number(smokingValue);
+	 switch (true) {
+		 case (healthFitnessScore > 20):
+			alert('You are in good health');
+			break;
+			case (healthFitnessScore > 20 && healthFitnessScore < 30 ):
+			alert('You are in average health');
+			break;
+			case (healthFitnessScore > 30):
+			alert('You are in below average health');
+			break;
+		}
+ alert (healthFitnessScore);
+};
+</script>
 
    <div id="bmi" align="center">
      <br>
